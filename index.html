@@ -24,8 +24,198 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-markdown>
+					<script type="text/template">
+						<h2>Instalacja Gita</h2>
+						<p>Należy pobrać wersję dla swojego systemu i można używać domyślnych ustawień instalatora</p>
+						```
+							http://git-scm.com/download/mac
+						```
+					</script>
+				</section>
+				<section>
+					<h2>Czy instalacja przebiegła pomyślnie?</h2>
+					<p>Wystarczy otworzyć terminal i wpisać "git"</p>
+				</section>
+				<section>
+					<h2>Jak to działa?</h2>
+					<img width="350" data-src="img/1.png">
+				</section>
+				<section>
+					<h2>Jak to działa?</h2>
+					<img width="500" data-src="img/2.png">
+				</section>
+				<section>
+					<h2>Pierwsze repozytorium</h2>
+					<ul>
+						<li>Utworzenie katalogu (mkdir &lt;nazwa katalogu&gt;)</li>
+						<li>Przejście do katalogu</li>
+						<li>Polecenie: git init</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ustawianie danych konta</h2>
+					<ul>
+						<li>git config --global user.name "&lt;nazwa użytkownika&gt;"</li>
+						<li>git config --global user.email "&lt;adres email&gt;"</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Przydatne komendy na początek</h2>
+					<ul>
+						<li>Status naszego repozytorium: git status</li>
+						<li>Historia projektu: git log</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Dodanie plików do poczekalni</h2>
+					<ul>
+						<li>Pojedynczy plik: git add &lt;nazwa pliku&gt;</li>
+						<li>Wszystkie pliki: git add .</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Usunięcie zmian jeśli plik nie był w poczekalni</h2>
+					<p>git checkout -- &lt;nazwa pliku&gt;</p>
+				</section>
+				<section>
+					<h2>Wycofanie pliku jeśli był w poczekalni</h2>
+					<p>git reset HEAD &lt;nazwa pliku&gt;</p>
+				</section>
+				<section>
+					<h2>Usunięcie zmian pliku w poczekalni</h2>
+					<p>git reset HEAD --hard;</p>
+				</section>
+				<section>
+					<h2>Wycofanie pliku po zrobieniu commitu (zachowuje całą treść)</h2>
+					<p>git rm --cached &lt;nazwa pliku&gt;</p>
+				</section>
+				<section>
+					<h2>Utworzenie commitu</h2>
+					<p>git commit -m &lt;wiadomość&gt;</p>
+				</section>
+				<section>
+					<h2>Zmiana wiadomości w ostatnim commicie</h2>
+					<p>git commit --amend</p>
+				</section>
+				<section>
+					<h2>Ignorowanie plików i katalogów</h2>
+					<p>Utworzenie pliku .gitignore</p>
+				</section>
+				<section>
+					<h2>Wykluczenie pliku</h2>
+					<p>!&lt;/nazwa katalogu/nazwa pliku&gt;</p>
+				</section>
+				<section>
+					<h2>Zmiana kolejności commitów</h2>
+					<ul>
+						<li>git rebase -i HEAD~&lt;ilość komitów w tył&gt;</li>
+						<img width="350" data-src="img/3.png">
+					</ul>
+				</section>
+				<section>
+					<h2>Scalanie commitów</h2>
+					<ul>
+						<li>git reset HEAD~&lt;ilość komitów w tył&gt;</li>
+						<li>git add .</li>
+						<li>git commit -m "&lt;wiadomość&gt;"</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Rozdzielanie commitów</h2>
+					<ul>
+						<li>git rebase &lt;id commitu&gt;</li>
+						<li>Zmiana nazwy commitu z "pick" na "edit"</li>
+						<li>git reset HEAD^ (pokazuje niezapisane zmiany)</li>
+						<li>git add &lt;nazwa pliku&gt;</li>
+						<li>git commit -m "&lt;wiadomość&gt;"</li>
+						<li>git rebase --continue></li>
+						<li>git commit --allow-empty (potwierdzić zapisanie)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Dodanie elementu na półkę</h2>
+					<ul>
+						<li>git add .</li>
+						<li>git stash save "&lt;powód&gt;"</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Przywracanie elementów z półki</h2>
+					<ul>
+						<li>git stash list (pokazuje elementy na półce)</li>
+						<li>git stash show (zmiany w plikach na półce)</li>
+						<li>git stash apply (pobiera element)</li>
+						<li>git stash pop (pobiera i usuwa z półki ostatni element)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Czyszczenie półki</h2>
+					<ul>
+						<li>Git stash drop &lt;id elementu&gt; (domyślnie z indexem 0)</li>
+						<li>git stash clear (czyści całą półkę)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Branche - rozgałęzienia</h2>
+					<img width="500" data-src="img/4.png">
+				</section>
+				<section>
+					<h2>Nowy branch</h2>
+					<ul>
+						<li>git branch &lt;nazwa brancha&gt;</li>
+						<li>git checkout &lt;nazwa brancha&gt;</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Kopiowanie brancha</h2>
+					<p>git checkout -b &lt;nazwa nowego brancha&gt; &lt;nazwa brancha z którego będzie robiona kopia&gt;</p>
+				</section>
+				<section>
+					<h2>Scalanie brancha</h2>
+					<p2>git merge &lt;nazwa brancha&gt;</p2>
+				</section>
+				<section>
+					<h2>Rozwiązywanie konfliktów</h2>
+					<img width="500" data-src="img/5.png">
+					<ul>
+						<li>Mergowanie branchy</li>
+						<li>Rozwiązywanie konfliktów</li>
+						<li>git commit</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Usuwanie brancha</h2>
+					<p>git branch -d &lt;nazwa brancha&gt;</p>
+				</section>
+				<section>
+					<h2>Uruchamianie komend bez konsekwencji --dry-run</h2>
+					<p>Przykład: git add --dry-run cache/</p>
+				</section>
+				<section>
+					<h2>Oznaczanie commitów tagami</h2>
+					<ul>
+						<li>git checkout &lt;numer commitu&gt;</li>
+						<li>git tag &lt;wersja&gt;</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Szybkie przejście do tagu</h2>
+					<p>git checkout &lt;wersja&gt;</p>
+				</section>
+				<section>
+					<h2>Fork</h2>
+					<img width="250" data-src="img/6.png">
+				</section>
+				<section>
+					<h2>Klonowanie repozytorium na dysk lokalny</h2>
+					<img width="350" data-src="img/7.png">
+					<p>git clone &lt;link do repozytorium&gt;</p>
+				</section>
+				<section>
+					<h2>KONIEC</h2>
+					<img width="500" data-src="img/8.png">
+				</section>
 			</div>
 		</div>
 
